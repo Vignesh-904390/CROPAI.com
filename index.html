@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CropAi</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="CROPAI LOGO WITH TM.png">
+  <h1>Smarter Farming, Healthier Crops</h1>
+
+  <style>
+    :root {
+      --green: #4a7b34;
+      --green-dark: #3a6129;
+      --bg: #f9f9f9;
+      --card-bg: #ffffff;
+      --gap: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #222;
+      padding-bottom: 60px;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--green);
+      padding: 28px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      gap: 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo img {
+      height: 80px;
+      width: auto;
+      animation: fadeInScale 1s ease-out forwards;
+    }
+
+    @keyframes fadeInScale {
+      0% {opacity: 0; transform: scale(0.85);}
+      60% {opacity: 1; transform: scale(1.03);}
+      100% {transform: scale(1);}
+    }
+
+    .quote {
+      font-size: 30px;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 4px;
+      animation: fadeInScale 1.2s ease-out;
+      font-family: "Trebuchet MS", sans-serif;
+    }
+
+    main {
+      width: min(1100px, 96%);
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 18px 0;
+      color: var(--green);
+      font-size: 28px;
+    }
+
+    p.lead {
+      margin: 0 0 28px 0;
+      color: #444;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    .crop-card {
+      background: var(--card-bg);
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      height: 220px;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .crop-title {
+      font-weight: bold;
+      color: #2d5b1f;
+      font-size: 18px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .image-button-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .tree-image {
+      width: 84px;
+      height: 84px;
+      border-radius: 8px;
+      object-fit: cover;
+      transition: transform 0.18s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      background: #fff;
+    }
+
+    .tree-image:hover {
+      transform: scale(1.04);
+    }
+
+    .predict-btn {
+      background-color: var(--green);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      transition: background-color 0.18s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .predict-btn:hover {
+      background-color: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .note {
+      margin: 0;
+      color: #666;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer {
+      width: 100%;
+      background-color: var(--green);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 25px 0 60px 0;
+      margin-top: 40px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-center {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .footer-left {
+      position: absolute;
+      bottom: 10px;
+      left: 25px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        height: 60px;
+      }
+      .quote {
+        font-size: 22px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      .tree-image {
+        width: 70px;
+        height: 70px;
+      }
+      .footer-center {
+        font-size: 16px;
+      }
+      .footer-left {
+        font-size: 13px;
+        left: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo">
+        <img src="CROPAI LOGO WITH TM.png" alt="CropAi Logo">
+      </div>
+      <div class="quote">GROWUP</div>
+    </div>
+  </header>
+
+  <main>
+    <h1>CropAi — Your crops, our intelligence transforming agriculture with AI precision</h1>
+    <p class="lead">Explore each crop and uncover potential diseases before they spread</p>
+
+    <div class="grid">
+      <!-- Coconut -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Coconut</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="COCONUT TREE.jpeg" alt="Coconut Tree">
+          <a href="http://69.62.82.238:8014/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Coconut tree disease prediction service.</b></p>
+      </div>
+
+      <!-- Cotton -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Cotton</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="COTTON.jpg" alt="Cotton Plant">
+          <a href="http://69.62.82.238:8012/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Cotton disease prediction service.</b></p>
+      </div>
+
+      <!-- Tomato -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Tomato</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="TOMATO.jpg" alt="Tomato Plant">
+          <a href="http://69.62.82.238:8011/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Tomato disease prediction service.</b></p>
+      </div>
+
+      <!-- Tea -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Tea</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="TEA.jpg" alt="Tea Plant">
+          <a href="http://69.62.82.238:8015/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Tea disease prediction service.</b></p>
+      </div>
+
+      <!-- Rice -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Rice</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="RICE.jpg" alt="Rice Plant">
+          <a href="http://69.62.82.238:8016/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Rice disease prediction service.</b></p>
+      </div>
+
+      <!-- Teak -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Teak</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="TEAK.jpg" alt="Teak Tree">
+          <a href="http://69.62.82.238:8017/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Teak disease prediction service.</b></p>
+      </div>
+
+      <!-- Drum Stick -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Drum Stick</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="DRUM STICK.jpg" alt="Drum Stick Tree">
+          <a href="http://69.62.82.238:8018/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Drum stick (Moringa) disease prediction service.</b></p>
+      </div>
+
+      <!-- Ladies Finger -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Ladies Finger (Okra)</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="LADIES FINGER.jpg" alt="Ladies Finger / Okra">
+          <a href="http://69.62.82.238:8019/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Ladies finger (Okra) disease prediction service.</b></p>
+      </div>
+
+      <!-- Mango -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Mango</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="MANGO.jpg" alt="Mango Tree">
+          <a href="http://69.62.82.238:8013/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Mango disease prediction service.</b></p>
+      </div>
+
+      <!-- Guava -->
+      <div class="crop-card">
+        <p class="crop-title"><b>Guava</b></p>
+        <div class="image-button-row">
+          <img class="tree-image" src="GUAVA.jpg" alt="Guava Tree">
+          <a href="http://69.62.82.238:8020/" target="_blank">
+            <button class="predict-btn">Predict</button>
+          </a>
+        </div>
+        <p class="note"><b>Guava disease prediction service.</b></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-center">
+      © 2025 <b>Tomato Disease Detection</b> | Built with ❤️ for Farmers<br>
+      <b>Powered by THINKDATA AI TECHNOLOGIES</b>
+    
+  </footer>
+
+</body>
+</html>
