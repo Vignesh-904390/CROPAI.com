@@ -7,7 +7,6 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="CROPAI LOGO WITH TM.png">
-  <h1>Smarter Farming, Healthier Crops</h1>
 
   <style>
     :root {
@@ -36,20 +35,21 @@
     header {
       width: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background-color: var(--green);
-      padding: 28px 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      background-color: #ffffff;
+      padding: 20px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
-      gap: 20px;
     }
 
     .logo-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
+      text-align: center;
     }
 
     .logo img {
@@ -64,18 +64,19 @@
       100% {transform: scale(1);}
     }
 
-    .quote {
-      font-size: 30px;
+    .tagline {
+      font-size: 24px;
       font-weight: bold;
-      color: #fff;
-      letter-spacing: 4px;
+      color: var(--green);
+      letter-spacing: 1px;
       animation: fadeInScale 1.2s ease-out;
       font-family: "Trebuchet MS", sans-serif;
+      margin: 5px 0 0 0;
     }
 
     main {
       width: min(1100px, 96%);
-      margin-top: 40px;
+      margin-top: 30px;
       text-align: center;
     }
 
@@ -206,8 +207,8 @@
       .logo img {
         height: 60px;
       }
-      .quote {
-        font-size: 22px;
+      .tagline {
+        font-size: 18px;
       }
       h1 {
         font-size: 22px;
@@ -234,7 +235,7 @@
       <div class="logo">
         <img src="CROPAI LOGO WITH TM.png" alt="CropAi Logo">
       </div>
-      <div class="quote">GROWUP</div>
+      <div class="tagline">The Nature Meets Intelligence</div>
     </div>
   </header>
 
@@ -370,7 +371,7 @@
     <div class="footer-center">
       © 2025 <b>CROPAI</b> | Built with ❤️ for Farmers<br>
       <b>Powered by THINKDATA AI TECHNOLOGIES</b>
-    
+    </div>
   </footer>
 
 </body>
